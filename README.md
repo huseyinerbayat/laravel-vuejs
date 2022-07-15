@@ -24,10 +24,18 @@ MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=hello@example.com
 MAIL_FROM_NAME="${APP_NAME}"
 
+## .env İçindeki APP_KEY'i Oluşturma
+
+php artisan key:generate
+
 ## Veritabanı Tabloları Oluşturulurken Seeder'ın Çalıştırılması
 
 php artisan migrate --seed
 
-## Personel Access Client Oluşturulması
+## Storage Klasörü Oluşturma
 
-php artisan passport:client --personal
+php artisan storage:link
+
+## Oauth-private ve Oauth-public Keylerin ve Personel Access Client Oluşturulması
+
+php artisan passport:install
